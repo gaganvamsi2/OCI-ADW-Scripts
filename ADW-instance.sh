@@ -9,6 +9,9 @@ echo " StrictHostKeyChecking no" >> ~/.ssh/config
 #oci iam compartment create -c $1 --name "${COMPARTMENT_NAME}" --description "experiment using cli"
 export COMPARTMENT_ID='ocid1.compartment.oc1..aaaaaaaaynm5wp77hfjamwwu5o55juhoktsg36pfdyfm3jgvvq5iwjbuh3gq'
 export VCN_ID='ocid1.vcn.oc1.iad.amaaaaaair4bqaqaxk2ype2hbyh4emnnwizmunuqkbx6pwzaxiccokoffl7a'
+
+
+
 export SUBNET_ID='ocid1.subnet.oc1.iad.aaaaaaaadqprunwiipbmlkij4ca2andirdgfjywea7hjtpthpomiajvixxxq'
 
 
@@ -86,7 +89,3 @@ export CREATED_L=$(oci lb listener create  --default-backend-set-name TC --load-
 export lb=$(oci lb load-balancer get --load-balancer-id $LB_ID)
 export LB_IP=$(jq -r '.data."ip-addresses"[0]."ip-address"' <<< "$lb")
 echo $LB_IP
-
-
-# openssl rand -base64 32 for password for wallet
-# docker cp <src-path> <container>:<dest-path> ... for wallet
